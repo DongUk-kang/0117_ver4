@@ -28,20 +28,35 @@ const App = () => {
 
 
     return (
-        <div>
-            {loans.map(loan => (
-                <>
-                    <h1>name : {loan.name}</h1>
-                    <h2>activity : {loan.activity}</h2>
-                    <h3>coutry : {loan.location.country}</h3>
-                    {loan.description.languages.map(language => (
-                        <h2>languages : {language}</h2>
-                    ))}
-                </>
+        <>
+            {loading ?
+                <div>
+                    <h1>
+                        loading ...
+                    </h1>
+                </div>
+            : (
+                    <div>
+                        {loans.map(loan => (
+                            <>
+                                <h1>name : {loan.name}</h1>
+                                <h2>activity : {loan.activity}</h2>
+                                <h3>coutry : {loan.location.country}</h3>
+                                {loan.description.languages.map(language => (
+                                    <h2>languages : {language}</h2>
+                                ))}
+                            </>
 
 
-            ))}
-        </div>
+                        ))}
+                    </div>
+
+                )
+
+            }
+        </>
+
+
     );
 };
 
